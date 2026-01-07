@@ -32,3 +32,8 @@ See: ./channels/omnichannel-rendering.md and ./nba/next-best-action.md
 
 Promotion from Sandbox → Canon occurs only via a Moirai ChangeSet and must pass Delphi evaluations.
 See: ./validation/canon-gates.md and ../../moirai-ledger/README.md
+
+## Interoperability appendices
+- LOM mapping: ../interoperability/lom-mapping.md
+- edX/OLX mapping: ../interoperability/edx-structure-mapping.md
+- OCW/Coursera parallels: ../interoperability/ocw-coursera-parallels.md
