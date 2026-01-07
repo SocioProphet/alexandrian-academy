@@ -1,0 +1,29 @@
+{
+  "policy_parameter_version": "v1",
+  "defaults": {
+    "timezone_required": true,
+    "canon_requires_evidence": true,
+    "canon_requires_jurisdiction_and_pedagogy": true,
+    "accepted_requires_policy_tags": true
+  },
+  "privacy": {
+    "default_privacy_mode": "restricted_private",
+    "under_13_mode_supported": true,
+    "consent_required_when_applicable": true
+  },
+  "accessibility": {
+    "wcag_profile": "WCAG2.1-AA",
+    "media_requires_captions_when_public": true,
+    "media_requires_transcripts_when_public": true,
+    "alt_modalities_required_for_assessment": true
+  },
+  "graph_integrity": {
+    "hasPart_isPartOf_cycle_policy": "forbid",
+    "allow_cycle_only_with_waiver": true
+  },
+  "nba": {
+    "hard_constraints_dominate": true,
+    "objectives": ["mastery_growth", "confidence_calibration", "pacing_fit"],
+    "min_evidence_before_mastery_unlock": 1
+  }
+}

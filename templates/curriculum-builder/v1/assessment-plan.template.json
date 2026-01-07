@@ -1,0 +1,49 @@
+{
+  "header": {
+    "object_id": "AT-ASSESSPLAN-TEMPLATE-REPLACE",
+    "object_type": "AssessmentPlan",
+    "object_version": "0.1",
+    "created_at": "REPLACE-ISO8601-TZ",
+    "created_by_contributor_id": "CONTRIB-REPLACE",
+    "created_by_role": "author",
+    "status": "draft",
+    "policy_tags": ["restricted_private"]
+  },
+  "lom": {
+    "general": {
+      "identifier": "AT-ASSESSPLAN-TEMPLATE-REPLACE",
+      "title": "PA AssessmentPlan (Template)",
+      "language": "en-US",
+      "description": "Template AssessmentPlan for US-PA with accommodations hooks.",
+      "keyword": ["US-PA", "AssessmentPlan"]
+    },
+    "lifeCycle": { "version": "0.1", "status": "draft" },
+    "rights": { "license": "MIT", "copyrightAndOtherRestrictions": "no" }
+  },
+  "extension": {
+    "jurisdiction_id": "US-PA",
+    "pedagogy_id": "montessori.v1",
+    "assessments": [
+      {
+        "assessment_id": "A1",
+        "evidence_type": "observation_log",
+        "mastery_rule": { "min_observations": 1, "threshold": "meets" },
+        "feedback_mode": "narrative"
+      }
+    ],
+    "accommodations_supported": {
+      "iep_alignment": true,
+      "section504_alignment": true,
+      "gifted_enrichment_alignment": true
+    },
+    "privacy_constraints": {
+      "privacy_mode": "restricted_private",
+      "retention_policy_ref": "policy/parameters/policy-parameter-sheet.v1.json"
+    },
+    "accessibility_constraints": {
+      "caption_required_if_media": true,
+      "transcript_required_if_media": true,
+      "alternative_modalities_allowed": true
+    }
+  }
+}

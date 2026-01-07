@@ -1,0 +1,45 @@
+{
+  "jurisdiction_id": "US-PA",
+  "country": "US",
+  "region": "PA",
+  "authority_sources": [
+    {
+      "name": "PDE / PA Code / Federal education privacy and accessibility frameworks",
+      "note": "This file is a structure template; authoritative citations live in docs and later compliance bundles."
+    }
+  ],
+  "compulsory_attendance": {
+    "note": "Populate with exact age/rules as a policy snapshot; keep changes versioned."
+  },
+  "academic_standards": {
+    "standards_registry_ref": "policy/jurisdictions/US-PA/standards.registry.v1.json",
+    "required_coverage_model": "tagged-node coverage via STD::* identifiers"
+  },
+  "assessment_accountability": {
+    "note": "Populate with graduation / pathway logic for high school when used."
+  },
+  "special_populations": {
+    "supports_iep": true,
+    "supports_section504": true,
+    "supports_gifted": true
+  },
+  "privacy_and_data": {
+    "modes": ["restricted_private", "restricted_pii", "restricted_third_party", "public_commons"],
+    "default_mode": "restricted_private",
+    "note": "FERPA/COPPA behaviors captured via policy parameter sheet + access controls later."
+  },
+  "online_safety": {
+    "cipa_mode_supported": true
+  },
+  "digital_accessibility": {
+    "required": true,
+    "baseline_standard": "WCAG2.1-AA",
+    "note": "Enforced via Delphi evaluations and publishing gates."
+  },
+  "local_override_slots": [
+    {
+      "name": "district_or_school_overrides",
+      "note": "Sub-jurisdiction overrides hang here, e.g., US-PA-PhiladelphiaSD."
+    }
+  ]
+}

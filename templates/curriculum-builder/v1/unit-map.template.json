@@ -1,0 +1,38 @@
+{
+  "header": {
+    "object_id": "AT-UNITMAP-TEMPLATE-REPLACE",
+    "object_type": "UnitMap",
+    "object_version": "0.1",
+    "created_at": "REPLACE-ISO8601-TZ",
+    "created_by_contributor_id": "CONTRIB-REPLACE",
+    "created_by_role": "author",
+    "status": "draft",
+    "policy_tags": ["restricted_private"]
+  },
+  "lom": {
+    "general": {
+      "identifier": "AT-UNITMAP-TEMPLATE-REPLACE",
+      "title": "PA UnitMap (Template)",
+      "language": "en-US",
+      "description": "Template UnitMap for US-PA. Nodes/edges drive NBA pathing.",
+      "keyword": ["US-PA", "UnitMap"]
+    },
+    "lifeCycle": { "version": "0.1", "status": "draft" },
+    "rights": { "license": "MIT", "copyrightAndOtherRestrictions": "no" }
+  },
+  "extension": {
+    "jurisdiction_id": "US-PA",
+    "pedagogy_id": "montessori.v1",
+    "map_model": "mastery_graph",
+    "cycle_policy": "forbid",
+    "nodes": [
+      {
+        "node_id": "NODE-1",
+        "node_type": "activity",
+        "standards_tags": ["STD::US::PA::PA-ELA::v1::K:Reading:FoundationalSkills:RF.1.1"],
+        "pedagogy_tags": ["concrete_first"]
+      }
+    ],
+    "edges": []
+  }
+}

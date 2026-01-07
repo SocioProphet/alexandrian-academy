@@ -1,0 +1,50 @@
+{
+  "header": {
+    "object_id": "AT-CURRPLAN-TEMPLATE-REPLACE",
+    "object_type": "CurriculumPlan",
+    "object_version": "0.1",
+    "created_at": "REPLACE-ISO8601-TZ",
+    "created_by_contributor_id": "CONTRIB-REPLACE",
+    "created_by_role": "author",
+    "status": "draft",
+    "policy_tags": ["restricted_private"]
+  },
+  "lom": {
+    "general": {
+      "identifier": "AT-CURRPLAN-TEMPLATE-REPLACE",
+      "title": "PA Curriculum Plan (Template)",
+      "language": "en-US",
+      "description": "Template CurriculumPlan aligned to US-PA jurisdiction profile and pedagogy profile.",
+      "keyword": ["US-PA", "CurriculumPlan"]
+    },
+    "lifeCycle": { "version": "0.1", "status": "draft" },
+    "educational": { "learningResourceType": "curriculum plan" },
+    "rights": { "license": "MIT", "copyrightAndOtherRestrictions": "no" }
+  },
+  "extension": {
+    "jurisdiction_id": "US-PA",
+    "pedagogy_id": "montessori.v1",
+    "jurisdiction_constraints": {
+      "required_standards_refs": ["STD::US::PA::PA-ELA::v1::K:Reading:FoundationalSkills:RF.1.1"],
+      "privacy_mode": "restricted_private",
+      "accessibility_required": true,
+      "special_populations_support": {
+        "iep_supported": true,
+        "section504_supported": true,
+        "gifted_supported": true
+      }
+    },
+    "pedagogy_parameters": {
+      "pacing_model": "self_paced",
+      "advancement_rule": "mastery_threshold",
+      "assessment_mix": "formative_heavy",
+      "presentation_style": "concrete_first",
+      "learner_agency": "high"
+    },
+    "nba_policy_ref": "templates/nba/v1/nba-policy.template.json",
+    "promotion_intent": {
+      "target_space": "sandbox",
+      "promotion_requirements": ["schema_valid"]
+    }
+  }
+}

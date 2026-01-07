@@ -1,0 +1,20 @@
+{
+  "jurisdiction_id": "US-PA",
+  "standards_id_grammar": "STD::<COUNTRY>::<JURISDICTION>::<STANDARD_SET>::<VERSION>::<PATH>",
+  "registered_standard_sets": [
+    {
+      "standard_set": "PA-ELA",
+      "version": "v1",
+      "source_note": "Placeholder registry entry; replace with authoritative mapping snapshot later."
+    },
+    {
+      "standard_set": "PA-MATH",
+      "version": "v1",
+      "source_note": "Placeholder registry entry; replace with authoritative mapping snapshot later."
+    }
+  ],
+  "examples": [
+    "STD::US::PA::PA-ELA::v1::K:Reading:FoundationalSkills:RF.1.1",
+    "STD::US::PA::PA-MATH::v1::K:CountingAndCardinality:CC.1"
+  ]
+}

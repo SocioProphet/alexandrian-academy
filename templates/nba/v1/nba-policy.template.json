@@ -1,0 +1,50 @@
+{
+  "nba_policy_version": "v1",
+  "jurisdiction_id": "US-PA",
+  "pedagogy_id": "montessori.v1",
+  "inputs": {
+    "requires": [
+      "learner_state.mastery_vector",
+      "learner_state.recent_evidence",
+      "curriculum.unit_map",
+      "curriculum.assessment_plan",
+      "policy.policy_parameter_sheet"
+    ]
+  },
+  "hard_constraints": [
+    "privacy_mode_enforced",
+    "accessibility_enforced",
+    "required_standards_coverage_enforced",
+    "accommodations_enforced"
+  ],
+  "objectives": [
+    "mastery_growth",
+    "confidence_calibration",
+    "pacing_fit"
+  ],
+  "outputs": {
+    "action_types": [
+      "DoNext",
+      "AssessNext",
+      "SupportNext",
+      "CommunicateNext",
+      "ReviewNext"
+    ],
+    "action_contract": {
+      "action_id": "string",
+      "action_type": "enum",
+      "target_node_id": "string",
+      "justification": {
+        "reason_codes": ["string"],
+        "supporting_standards_refs": ["STD::*"],
+        "required_accommodations": ["string"]
+      },
+      "renderers": {
+        "chat": { "message": "string" },
+        "messaging": { "message": "string" },
+        "email": { "subject": "string", "body": "string" },
+        "phone": { "script": "string" }
+      }
+    }
+  }
+}

@@ -1,0 +1,28 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+# Only run if venv exists; otherwise skip (developer can run `make validate`).
+if [[ ! -x ".venv/bin/python" ]]; then
+  echo "[pre-commit] .venv not found; skipping validation. Run: make validate"
+  exit 0
+fi
+
+CHANGED_JSON=$(git diff --cached --name-only --diff-filter=ACM | grep -E '\.json$' || true)
+if [[ -z "${CHANGED_JSON}" ]]; then
+  exit 0
+fi
+
+echo "[pre-commit] Validating changed JSON objects (schema + canon gates where applicable)..."
+
+FAIL=0
+while IFS= read -r f; do
+  # Validate only objects that look like our artifacts (heuristic)
+  if grep -q '"object_type"' "$f" 2>/dev/null; then
+    .venv/bin/python atlas-codex/validators/validate_object.py "$f" || FAIL=1
+  fi
+done <<< "${CHANGED_JSON}"
+
+if [[ "$FAIL" -ne 0 ]]; then
+  echo "[pre-commit] Validation failed. Fix errors or adjust object status/space appropriately."
+  exit 1
+fi
