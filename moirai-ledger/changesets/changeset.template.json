@@ -1,0 +1,29 @@
+{
+  "header": {
+    "object_id": "MO-CHANGESET-REPLACE",
+    "object_type": "ChangeSet",
+    "object_version": "1",
+    "created_at": "2026-01-07T00:00:00-05:00",
+    "created_by_contributor_id": "CONTRIB-REPLACE",
+    "created_by_role": "author",
+    "status": "proposed",
+    "policy_tags": ["public_commons"]
+  },
+  "changes": [
+    {
+      "operation": "PROMOTE_SANDBOX_TO_CANON",
+      "target_object_id": "AT-OBJECT-REPLACE",
+      "from_space": "sandbox",
+      "to_space": "canon",
+      "before_hash": "HEX64-REPLACE",
+      "after_hash": "HEX64-REPLACE"
+    }
+  ],
+  "justification": {
+    "supporting_span_ids": ["AR-SPAN-REPLACE"],
+    "source_artifact_ids": ["AE-ARTIFACT-REPLACE"],
+    "derivation_activity": "review",
+    "derivation_confidence": 1.0,
+    "rationale_text": "Promotion justified by evidence and review."
+  }
+}
