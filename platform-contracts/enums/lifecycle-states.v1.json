@@ -1,0 +1,20 @@
+{
+  "schema_id": "alexandrian-academy.enums.lifecycle-states.v1",
+  "version": "1.0.0",
+  "states": [
+    {
+      "token": "draft",
+      "conceptual_aliases": ["sandbox"],
+      "description": "Work-in-progress objects. Valid for iteration, not for public/accepted reference."
+    },
+    {
+      "token": "accepted",
+      "conceptual_aliases": ["canon"],
+      "description": "Promotion state. Objects must meet strict evidence, standards, and jurisdiction rules."
+    }
+  ],
+  "transitions": [
+    { "from": "draft", "to": "accepted", "requires": ["changeset", "evidence", "standards", "jurisdiction"] },
+    { "from": "accepted", "to": "draft", "requires": ["changeset", "revert_justification"] }
+  ]
+}

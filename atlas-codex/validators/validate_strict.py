@@ -119,6 +119,7 @@ def main():
         elif state != args.expect_state:
             fail(f"header.state mismatch: expected {args.expect_state}, got {state}")
 
+
     # Canon-specific constraints
     if state == "canon" or args.expect_state == "canon":
         jurisdiction_id = find_first(header, ["jurisdiction_id", "jurisdictionId"])
