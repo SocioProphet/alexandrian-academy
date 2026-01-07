@@ -1,0 +1,37 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "alexandrian-academy://schemas/universal-header.schema.json",
+  "title": "UniversalHeader",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "object_id",
+    "object_type",
+    "object_version",
+    "created_at",
+    "created_by_contributor_id",
+    "created_by_role",
+    "status",
+    "policy_tags"
+  ],
+  "properties": {
+    "object_id": { "type": "string", "minLength": 8 },
+    "object_type": { "type": "string", "minLength": 2 },
+    "object_version": { "type": "string", "minLength": 1 },
+    "created_at": { "type": "string", "format": "date-time" },
+    "created_by_contributor_id": { "type": "string", "minLength": 3 },
+    "created_by_role": {
+      "type": "string",
+      "enum": ["author","editor","reviewer","curator","transcriber","captioner","segmenter","system"]
+    },
+    "supersedes_object_id": { "type": "string" },
+    "status": {
+      "type": "string",
+      "enum": ["draft","proposed","reviewed","accepted","deprecated","retracted"]
+    },
+    "policy_tags": {
+      "type": "array",
+      "items": { "type": "string", "minLength": 1 }
+    }
+  }
+}

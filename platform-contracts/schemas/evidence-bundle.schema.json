@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "alexandrian-academy://schemas/evidence-bundle.schema.json",
+  "title": "EvidenceBundle",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "supporting_span_ids",
+    "source_artifact_ids",
+    "derivation_activity",
+    "derivation_confidence"
+  ],
+  "properties": {
+    "supporting_span_ids": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "type": "string", "minLength": 3 }
+    },
+    "source_artifact_ids": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "type": "string", "minLength": 3 }
+    },
+    "derivation_activity": {
+      "type": "string",
+      "enum": ["ingest","parse","segment","transcribe","caption","extract","link","review"]
+    },
+    "derivation_confidence": { "type": "number", "minimum": 0, "maximum": 1 },
+    "rationale_text": { "type": "string" },
+    "rationale_object_id": { "type": "string" }
+  }
+}

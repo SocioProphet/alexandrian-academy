@@ -1,0 +1,133 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "alexandrian-academy://schemas/curriculum-plan.schema.json",
+  "title": "CurriculumPlan",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["header", "lom", "extension"],
+  "properties": {
+    "header": { "$ref": "universal-header.schema.json" },
+    "evidence": { "$ref": "evidence-bundle.schema.json" },
+
+    "lom": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["general", "lifeCycle", "educational", "rights"],
+      "properties": {
+        "general": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["identifier", "title", "language", "description"],
+          "properties": {
+            "identifier": { "type": "string" },
+            "title": { "type": "string" },
+            "language": { "type": "string" },
+            "description": { "type": "string" },
+            "keyword": { "type": "array", "items": { "type": "string" } },
+            "coverage": { "type": "string" }
+          }
+        },
+        "lifeCycle": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["version", "status"],
+          "properties": {
+            "version": { "type": "string" },
+            "status": { "type": "string" },
+            "contribute": { "type": "array", "items": { "type": "object" } }
+          }
+        },
+        "educational": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["learningResourceType"],
+          "properties": {
+            "learningResourceType": { "type": "string", "const": "curriculum plan" },
+            "interactivityType": { "type": "string" },
+            "intendedEndUserRole": { "type": "array", "items": { "type": "string" } },
+            "context": { "type": "array", "items": { "type": "string" } },
+            "typicalLearningTime": { "type": "string" },
+            "difficulty": { "type": "string" }
+          }
+        },
+        "rights": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["license"],
+          "properties": {
+            "license": { "type": "string", "const": "MIT" },
+            "copyrightAndOtherRestrictions": { "type": "string", "const": "no" }
+          }
+        },
+        "relation": { "type": "object" },
+        "classification": { "type": "object" },
+        "technical": { "type": "object" },
+        "metaMetadata": { "type": "object" }
+      }
+    },
+
+    "extension": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["jurisdiction_id", "pedagogy_id", "jurisdiction_constraints", "pedagogy_parameters", "promotion_intent"],
+      "properties": {
+        "jurisdiction_id": { "type": "string", "minLength": 3 },
+        "pedagogy_id": { "type": "string", "minLength": 3 },
+
+        "jurisdiction_constraints": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["required_standards_refs", "privacy_mode", "accessibility_required", "special_populations_support"],
+          "properties": {
+            "compulsory_age_band": { "type": "string" },
+            "required_standards_refs": {
+              "type": "array",
+              "minItems": 1,
+              "items": { "type": "string", "minLength": 5 }
+            },
+            "privacy_mode": { "type": "string" },
+            "accessibility_required": { "type": "boolean" },
+            "special_populations_support": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["iep_supported","section504_supported","gifted_supported"],
+              "properties": {
+                "iep_supported": { "type": "boolean" },
+                "section504_supported": { "type": "boolean" },
+                "gifted_supported": { "type": "boolean" }
+              }
+            }
+          }
+        },
+
+        "pedagogy_parameters": {
+          "type": "object",
+          "additionalProperties": true,
+          "properties": {
+            "pacing_model": { "type": "string" },
+            "advancement_rule": { "type": "string" },
+            "assessment_mix": { "type": "string" },
+            "presentation_style": { "type": "string" },
+            "learner_agency": { "type": "string" }
+          }
+        },
+
+        "nba_policy_ref": { "type": "string" },
+
+        "promotion_intent": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["target_space", "promotion_requirements"],
+          "properties": {
+            "target_space": { "type": "string", "enum": ["sandbox","canon"] },
+            "promotion_requirements": {
+              "type": "array",
+              "minItems": 1,
+              "items": { "type": "string" }
+            }
+          }
+        }
+      }
+    }
+  }
+}
