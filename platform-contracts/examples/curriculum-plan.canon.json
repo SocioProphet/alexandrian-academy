@@ -7,11 +7,17 @@
     "created_by_contributor_id": "CONTRIB-EXAMPLE",
     "created_by_role": "author",
     "status": "accepted",
-    "policy_tags": ["public_commons"]
+    "policy_tags": [
+      "public_commons"
+    ]
   },
   "evidence": {
-    "supporting_span_ids": ["AR-SPAN-EXAMPLE-1"],
-    "source_artifact_ids": ["AE-ARTIFACT-EXAMPLE-1"],
+    "supporting_span_ids": [
+      "AR-SPAN-EXAMPLE-1"
+    ],
+    "source_artifact_ids": [
+      "AE-ARTIFACT-EXAMPLE-1"
+    ],
     "derivation_activity": "review",
     "derivation_confidence": 1.0,
     "rationale_text": "Canon promotion includes evidence anchors."
@@ -22,17 +28,32 @@
       "title": "US-PA Example Curriculum Plan (Canon)",
       "language": "en-US",
       "description": "Canon-ready curriculum plan for Pennsylvania-first scaffolding.",
-      "keyword": ["US-PA", "Montessori", "ELA", "Math"]
+      "keyword": [
+        "US-PA",
+        "Montessori",
+        "ELA",
+        "Math"
+      ]
     },
-    "lifeCycle": { "version": "1.0", "status": "accepted" },
-    "educational": { "learningResourceType": "curriculum plan" },
-    "rights": { "license": "MIT", "copyrightAndOtherRestrictions": "no" }
+    "lifeCycle": {
+      "version": "1.0",
+      "status": "accepted"
+    },
+    "educational": {
+      "learningResourceType": "curriculum plan"
+    },
+    "rights": {
+      "license": "MIT",
+      "copyrightAndOtherRestrictions": "no"
+    }
   },
   "extension": {
     "jurisdiction_id": "US-PA",
     "pedagogy_id": "montessori.v1",
     "jurisdiction_constraints": {
-      "required_standards_refs": ["US-PA-STDSET-v1:ELA:K:Reading"],
+      "required_standards_refs": [
+        "US-PA-STDSET-v1:ELA:K:Reading"
+      ],
       "privacy_mode": "restricted_private",
       "accessibility_required": true,
       "special_populations_support": {
@@ -50,7 +71,12 @@
     },
     "promotion_intent": {
       "target_space": "canon",
-      "promotion_requirements": ["schema_valid", "canon_gates_pass"]
+      "promotion_requirements": [
+        "schema_valid",
+        "canon_gates_pass"
+      ]
     }
-  }
+  },
+  "status": "canon",
+  "changeset_id": "CS-0001-2026-01-07T13:35:00Z"
 }
