@@ -11,6 +11,46 @@ Strict mode enforces:
 """
 
 import argparse
+
+import json
+from pathlib import Path as _Path
+
+LIFECYCLE_REGISTRY_PATH = _Path("platform-contracts/enums/lifecycle-states.v1.json")
+
+def _load_lifecycle():
+    # Safe fallback (tool remains usable even if registry missing)
+    fallback_tokens = ["sandbox", "draft", "canon", "accepted"]
+    fallback_aliases = {
+        "sandbox": ["sandbox", "draft"],
+        "draft": ["draft"],
+        "canon": ["canon", "accepted"],
+        "accepted": ["accepted"]
+    }
+    try:
+        if not LIFECYCLE_REGISTRY_PATH.exists():
+            return {"tokens": fallback_tokens, "aliases": fallback_aliases}
+        reg = json.loads(LIFECYCLE_REGISTRY_PATH.read_text(encoding="utf-8"))
+        tokens = []
+        aliases = {}
+        for st in reg.get("states", []) or []:
+            tok = st.get("token")
+            if not tok:
+                continue
+            tokens.append(tok)
+            aliases.setdefault(tok, [])
+            aliases[tok] = sorted(set(aliases[tok] + [tok]))
+            for a in (st.get("conceptual_aliases", []) or []):
+                aliases.setdefault(a, [])
+                aliases[a] = sorted(set(aliases[a] + [a, tok]))
+        # Ensure conceptual defaults exist even if registry omitted them
+        aliases.setdefault("sandbox", ["sandbox", "draft"])
+        aliases.setdefault("canon", ["canon", "accepted"])
+        all_tokens = sorted(set(tokens + list(aliases.keys())))
+        return {"tokens": all_tokens, "aliases": aliases}
+    except Exception:
+        return {"tokens": fallback_tokens, "aliases": fallback_aliases}
+
+LIFECYCLE = _load_lifecycle()
 import json
 import re
 import sys
@@ -83,7 +123,7 @@ def count_artifacts(obj) -> int:
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("path", help="Path to JSON object to strict-validate")
-    ap.add_argument("--expect-state", choices=["sandbox", "draft", "canon", "accepted"], default=None)
+    ap.add_argument("--expect-state", choices=LIFECYCLE["tokens"], default=None)
     args = ap.parse_args()
 
     p = Path(args.path)
@@ -109,15 +149,10 @@ def main():
         fail(f"header.state contains placeholder token: {state}")
 
     if args.expect_state:
-        # Compatibility aliases (repo vocabulary evolves; we keep strictness while supporting canonical names)
-        # - 'sandbox' is an alias for 'draft'
-        # - 'canon' is an alias for 'accepted'
-        if args.expect_state == "sandbox" and state in ("sandbox", "draft"):
-            pass
-        elif args.expect_state == "canon" and state in ("canon", "accepted"):
-            pass
-        elif state != args.expect_state:
+        allowed = LIFECYCLE["aliases"].get(args.expect_state, [args.expect_state])
+        if state not in allowed:
             fail(f"header.state mismatch: expected {args.expect_state}, got {state}")
+
 
 
     # Canon-specific constraints

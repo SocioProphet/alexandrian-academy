@@ -5,12 +5,12 @@
     {
       "token": "draft",
       "conceptual_aliases": ["sandbox"],
-      "description": "Work-in-progress objects. Valid for iteration, not for public/accepted reference."
+      "description": "Work-in-progress objects. Valid for iteration, not promoted."
     },
     {
       "token": "accepted",
       "conceptual_aliases": ["canon"],
-      "description": "Promotion state. Objects must meet strict evidence, standards, and jurisdiction rules."
+      "description": "Promoted objects. Must satisfy strict evidence, standards, and jurisdiction gates."
     }
   ],
   "transitions": [
