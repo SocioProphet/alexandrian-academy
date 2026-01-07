@@ -20,3 +20,7 @@ validate-templates: deps
 $(PY) atlas-codex/validators/validate_object.py templates/curriculum-builder/v1/curriculum-plan.template.json || true
 $(PY) atlas-codex/validators/validate_object.py templates/curriculum-builder/v1/unit-map.template.json || true
 $(PY) atlas-codex/validators/validate_object.py templates/curriculum-builder/v1/assessment-plan.template.json || true
+
+.PHONY: verify-diagrams
+verify-diagrams:
+python3 tools/verify_diagrams.py

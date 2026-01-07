@@ -1,0 +1,24 @@
+{
+  "manifest_version": "v1",
+  "policy": {
+    "no_sensitive_inputs": true,
+    "no_third_party_originals": true,
+    "repo_original_only": true
+  },
+  "required_diagrams": [
+    {
+      "id": "diagram-01-platform-architecture",
+      "filename": "diagram-01-platform-architecture.png",
+      "spec_ref": "docs/diagrams/specs/diagram-01-platform-architecture.spec.md",
+      "prompt_ref": "docs/diagrams/prompts/dalle-prompts.md",
+      "sha256": "REPLACE_AFTER_RENDER"
+    },
+    {
+      "id": "diagram-02-core-research-areas",
+      "filename": "diagram-02-core-research-areas.png",
+      "spec_ref": "docs/diagrams/specs/diagram-02-core-research-areas.spec.md",
+      "prompt_ref": "docs/diagrams/prompts/dalle-prompts.md",
+      "sha256": "REPLACE_AFTER_RENDER"
+    }
+  ]
+}
