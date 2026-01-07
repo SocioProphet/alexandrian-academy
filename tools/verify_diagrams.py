@@ -35,7 +35,6 @@ def main() -> int:
             failures += 1
             continue
 
-        fp = rendered_dir / fnamePath(fname)
         # (Workaround for strictness; keep path simple)
         fp = rendered_dir / fname
 
@@ -63,6 +62,4 @@ def main() -> int:
     return 0
 
 if __name__ == "__main__":
-    # Avoid NameError if we later choose to allow subpaths; keep simple for now.
-    class Roe: pass
     raise SystemExit(main())

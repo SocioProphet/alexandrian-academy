@@ -11,14 +11,14 @@
       "filename": "diagram-01-platform-architecture.png",
       "spec_ref": "docs/diagrams/specs/diagram-01-platform-architecture.spec.md",
       "prompt_ref": "docs/diagrams/prompts/dalle-prompts.md",
-      "sha256": "REPLACE_AFTER_RENDER"
+      "sha256": "24f6c3ce028a15251176f7a607cc86269111efe1d5d1f74c2856778e9774a812"
     },
     {
       "id": "diagram-02-core-research-areas",
       "filename": "diagram-02-core-research-areas.png",
       "spec_ref": "docs/diagrams/specs/diagram-02-core-research-areas.spec.md",
       "prompt_ref": "docs/diagrams/prompts/dalle-prompts.md",
-      "sha256": "REPLACE_AFTER_RENDER"
+      "sha256": "2b3b659fab0e8ca1e8dd5d1fab0d8b54744d1a6a2e5be5f12083eb759901640d"
     }
   ]
 }
