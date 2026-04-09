@@ -1,0 +1,7 @@
+{
+  "course_id": "probability-random-processes.v1",
+  "chapters": 13,
+  "implemented": 7,
+  "engine": "ProbabilityTeacherTeam",
+  "evaluation": "claim-graph + theorem + exercise contracts"
+}
