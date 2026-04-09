@@ -1,0 +1,70 @@
+{
+  "$schema": "../../../platform-contracts/schemas/curriculum-plan.schema.json",
+  "header": {
+    "object_id": "CURR::AA::PROB-RP::v2",
+    "object_type": "curriculum_plan",
+    "object_version": "v2",
+    "created_at": "2026-04-09T06:30:00Z",
+    "created_by_contributor_id": "chatgpt-system",
+    "created_by_role": "system",
+    "status": "draft",
+    "policy_tags": ["academy", "probability", "agentic", "evidence-first"]
+  },
+  "lom": {
+    "general": {
+      "identifier": "probability-random-processes.v1",
+      "title": "Probability and Random Processes (Agentic Track)",
+      "language": "en",
+      "description": "Evidence-first stochastic curriculum covering probability foundations, convergence, stochastic processes, martingales, and diffusion methods.",
+      "keyword": ["probability", "random processes", "stochastic processes", "martingales", "claim-graph grading"],
+      "coverage": "Chapters 1-13 with Chapters 1-7 implemented in the current runtime"
+    },
+    "lifeCycle": {
+      "version": "v2",
+      "status": "draft"
+    },
+    "educational": {
+      "learningResourceType": "curriculum plan",
+      "interactivityType": "mixed",
+      "intendedEndUserRole": ["teacher", "learner", "curator"],
+      "context": ["higher education", "lifelong learning"],
+      "typicalLearningTime": "P26W",
+      "difficulty": "advanced"
+    },
+    "rights": {
+      "license": "MIT",
+      "copyrightAndOtherRestrictions": "no"
+    }
+  },
+  "extension": {
+    "jurisdiction_id": "GENERIC",
+    "pedagogy_id": "agentic.mastery.v1",
+    "jurisdiction_constraints": {
+      "required_standards_refs": ["STD::GENERIC::OPEN::STOCHASTIC-CURRICULUM::v1::Probability:RandomProcesses"],
+      "privacy_mode": "minimize-pii",
+      "accessibility_required": true,
+      "special_populations_support": {
+        "iep_supported": true,
+        "section504_supported": true,
+        "gifted_supported": true
+      }
+    },
+    "pedagogy_parameters": {
+      "pacing_model": "mastery-based",
+      "advancement_rule": "chapter certification gates",
+      "assessment_mix": "concept+theorem+exercise+claim-graph",
+      "presentation_style": "proof-aware and worked-example heavy",
+      "learner_agency": "guided"
+    },
+    "nba_policy_ref": "NBA::AA::PROB-RP::v1",
+    "promotion_intent": {
+      "target_space": "sandbox",
+      "promotion_requirements": [
+        "schema validation",
+        "chapter certification gates",
+        "governance review",
+        "evidence bundle attachment"
+      ]
+    }
+  }
+}
