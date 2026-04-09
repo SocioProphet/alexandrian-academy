@@ -1,0 +1,17 @@
+{
+  "changeset_id": "CHANGESET::AA::PROB-RP::INIT",
+  "timestamp": "2026-04-09T06:55:00Z",
+  "author": "chatgpt-system",
+  "status_transition": {
+    "from": "draft",
+    "to": "proposed"
+  },
+  "affected_objects": [
+    "CURR::AA::PROB-RP::v2",
+    "UNITMAP::AA::PROB-RP::v2",
+    "ASSESS::AA::PROB-RP::v2"
+  ],
+  "justification": "Initial promotion of schema-aligned probability and random processes curriculum into Alexandrian Academy with evidence bundle attached and assessment/graph layers defined.",
+  "evidence_ref": "courses/probability-random-processes/atlas-codex/evidence-bundle.v1.json",
+  "review_required": true
+}
