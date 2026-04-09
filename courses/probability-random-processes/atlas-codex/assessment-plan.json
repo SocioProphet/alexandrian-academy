@@ -1,0 +1,28 @@
+{
+  "$schema": "../../platform-contracts/schemas/assessment-plan.schema.json",
+  "id": "ASSESS::AA::PROB-RP::v1",
+  "status": "draft",
+  "evaluation_modes": [
+    "concept",
+    "theorem",
+    "exercise",
+    "claim-graph"
+  ],
+  "mastery_thresholds": {
+    "chapter_pass": 0.75,
+    "concept_mastery": 0.7,
+    "exercise_mastery": 0.8
+  },
+  "certification": {
+    "type": "chapter_gate",
+    "requires": [
+      "theorem contract satisfaction",
+      "no forbidden inference",
+      "claim graph consistency"
+    ]
+  },
+  "engine": {
+    "name": "ProbabilityTeacherTeam",
+    "version": "v7"
+  }
+}
