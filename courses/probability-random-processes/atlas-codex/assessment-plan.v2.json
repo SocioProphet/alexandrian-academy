@@ -1,0 +1,67 @@
+{
+  "$schema": "../../../platform-contracts/schemas/assessment-plan.schema.json",
+  "header": {
+    "object_id": "ASSESS::AA::PROB-RP::v2",
+    "object_type": "assessment_plan",
+    "object_version": "v2",
+    "created_at": "2026-04-09T06:45:00Z",
+    "created_by_contributor_id": "chatgpt-system",
+    "created_by_role": "system",
+    "status": "draft",
+    "policy_tags": ["academy", "probability", "assessment", "claim-graph"]
+  },
+  "lom": {
+    "general": {
+      "identifier": "probability-random-processes.assessment-plan.v2",
+      "title": "Probability and Random Processes Assessment Plan",
+      "language": "en",
+      "description": "Assessment plan using concept, theorem, exercise, and claim-graph evaluation modes.",
+      "keyword": ["assessment", "probability", "claim graph", "mastery"]
+    },
+    "lifeCycle": {
+      "version": "v2",
+      "status": "draft"
+    },
+    "rights": {
+      "license": "MIT",
+      "copyrightAndOtherRestrictions": "no"
+    }
+  },
+  "extension": {
+    "jurisdiction_id": "GENERIC",
+    "pedagogy_id": "agentic.mastery.v1",
+    "assessments": [
+      {
+        "assessment_id": "ch-gate",
+        "evidence_type": "performance_task",
+        "mastery_rule": {
+          "threshold": 0.75,
+          "conditions": ["no forbidden inference", "claim graph consistency"]
+        },
+        "feedback_mode": "mixed"
+      },
+      {
+        "assessment_id": "exercise",
+        "evidence_type": "formative_quiz",
+        "mastery_rule": {
+          "threshold": 0.8,
+          "conditions": ["exercise contract satisfied"]
+        },
+        "feedback_mode": "rubric_scored"
+      }
+    ],
+    "accommodations_supported": {
+      "iep_alignment": true,
+      "section504_alignment": true,
+      "gifted_enrichment_alignment": true
+    },
+    "privacy_constraints": {
+      "privacy_mode": "minimize-pii"
+    },
+    "accessibility_constraints": {
+      "caption_required_if_media": true,
+      "transcript_required_if_media": true,
+      "alternative_modalities_allowed": true
+    }
+  }
+}
