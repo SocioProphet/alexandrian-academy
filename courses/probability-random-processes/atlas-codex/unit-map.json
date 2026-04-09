@@ -1,0 +1,34 @@
+{
+  "$schema": "../../platform-contracts/schemas/unit-map.schema.json",
+  "id": "UNITMAP::AA::PROB-RP::v1",
+  "status": "draft",
+  "units": [
+    {"id": "ch1", "title": "Foundations of Probability"},
+    {"id": "ch2", "title": "Random Variables"},
+    {"id": "ch3", "title": "Discrete Models"},
+    {"id": "ch4", "title": "Continuous Models"},
+    {"id": "ch5", "title": "Transforms"},
+    {"id": "ch6", "title": "Markov Processes"},
+    {"id": "ch7", "title": "Convergence"},
+    {"id": "ch8", "title": "Random Processes"},
+    {"id": "ch9", "title": "Stationary Processes"},
+    {"id": "ch10", "title": "Renewals"},
+    {"id": "ch11", "title": "Queueing"},
+    {"id": "ch12", "title": "Martingales"},
+    {"id": "ch13", "title": "Brownian Motion and Ito Calculus"}
+  ],
+  "dependencies": [
+    {"from": "ch1", "to": "ch2"},
+    {"from": "ch2", "to": "ch3"},
+    {"from": "ch3", "to": "ch4"},
+    {"from": "ch4", "to": "ch5"},
+    {"from": "ch5", "to": "ch6"},
+    {"from": "ch6", "to": "ch7"},
+    {"from": "ch7", "to": "ch8"},
+    {"from": "ch8", "to": "ch9"},
+    {"from": "ch9", "to": "ch10"},
+    {"from": "ch10", "to": "ch11"},
+    {"from": "ch11", "to": "ch12"},
+    {"from": "ch12", "to": "ch13"}
+  ]
+}
