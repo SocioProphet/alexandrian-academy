@@ -1,0 +1,16 @@
+{
+  "$schema": "../../../platform-contracts/schemas/evidence-bundle.schema.json",
+  "supporting_span_ids": [
+    "span::prob-rp::toc::chapters-1-13",
+    "span::prob-rp::runtime::teacher-team-v7",
+    "span::prob-rp::academy::course-scaffold"
+  ],
+  "source_artifact_ids": [
+    "artifact::user-upload::probability-toc-images",
+    "artifact::runtime::ProbabilityTeacherTeam::v7",
+    "artifact::repo::SocioProphet/alexandrian-academy::courses/probability-random-processes"
+  ],
+  "derivation_activity": "extract",
+  "derivation_confidence": 0.83,
+  "rationale_text": "This bundle links the course package to the recovered chapter structure from the uploaded contents pages, the generated ProbabilityTeacherTeam runtime through v7, and the academy-native course scaffold created in Alexandrian Academy."
+}
