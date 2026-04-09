@@ -1,0 +1,52 @@
+{
+  "evaluation_id": "EVAL::AA::PROB-RP::INITIAL",
+  "created_at": "2026-04-09T07:05:00Z",
+  "subject_objects": [
+    "CURR::AA::PROB-RP::v2",
+    "UNITMAP::AA::PROB-RP::v2",
+    "ASSESS::AA::PROB-RP::v2"
+  ],
+  "engine": {
+    "name": "ProbabilityTeacherTeam",
+    "version": "v7",
+    "modes": ["concept", "theorem", "exercise", "claim-graph"]
+  },
+  "policy_snapshot": {
+    "jurisdiction_id": "GENERIC",
+    "pedagogy_id": "agentic.mastery.v1",
+    "privacy_mode": "minimize-pii",
+    "accessibility_required": true
+  },
+  "detector_findings": [
+    {
+      "detector_id": "claim-graph-consistency",
+      "severity": "info",
+      "status": "pass",
+      "summary": "Claim-graph evaluation is declared in the assessment plan and is consistent with chapter-gate certification."
+    },
+    {
+      "detector_id": "schema-alignment-course-objects",
+      "severity": "info",
+      "status": "pass",
+      "summary": "Curriculum plan, unit map, and assessment plan were rewritten into schema-aligned v2 forms."
+    },
+    {
+      "detector_id": "evidence-depth",
+      "severity": "warning",
+      "status": "needs-work",
+      "summary": "Evidence bundle exists, but theorem-level and derivation-level anchors are still incomplete."
+    },
+    {
+      "detector_id": "oracle-registration-depth",
+      "severity": "warning",
+      "status": "needs-work",
+      "summary": "Initial Oracle evaluation artifact exists, but detector coverage for convergence misuse, independence misuse, and Markov misuse is not yet fully registered."
+    }
+  ],
+  "overall_status": "provisionally-ready-for-sandbox-promotion",
+  "recommended_next_actions": [
+    "attach theorem-level evidence anchors",
+    "expand oracle detector coverage",
+    "build chapter 8 objects and runtime support"
+  ]
+}
