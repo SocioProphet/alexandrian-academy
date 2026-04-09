@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "KRCandidateMin",
+  "type": "object",
+  "required": ["kind", "claimRef", "scopeRef"],
+  "properties": {
+    "kind": {"type": "string"},
+    "claimRef": {"type": "string"},
+    "scopeRef": {"type": "string"}
+  },
+  "additionalProperties": true
+}
