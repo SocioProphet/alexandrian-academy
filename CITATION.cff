@@ -1,0 +1,40 @@
+cff-version: 1.2.0
+title: Alexandrian Academy
+message: >-
+  If you use this platform, schemas, or governance model in academic work,
+  please cite it as below.
+type: software
+license: MIT
+repository-code: https://github.com/SocioProphet/alexandrian-academy
+abstract: >-
+  Alexandrian Academy is an open, policy-governed platform for building and
+  delivering curriculum at scale. It provides a monorepo of JSON schemas,
+  validators, templates, jurisdiction profiles, and governance tooling for
+  evidence-based, accessible, and reproducible educational content management.
+  Key features include immutable evidence storage (Aegis Vault), precise
+  citation anchoring (Ariadne's Thread), accessible media derivatives
+  (Mnemosyne Forge), versioned learning objects with Sandbox/Canon separation
+  (Atlas Codex), append-only governance (Moirai Ledger), and reproducible
+  policy-snapshotted evaluation (Oracle of Delphi).
+keywords:
+  - education
+  - curriculum
+  - learning management
+  - edtech
+  - K-12
+  - higher education
+  - Montessori
+  - JSON Schema
+  - provenance
+  - governance
+  - accessibility
+  - WCAG
+  - FERPA
+  - COPPA
+  - LOM
+  - competency-based education
+  - mastery learning
+  - omnichannel
+  - knowledge graph
+  - open education
+  - next-best-action
