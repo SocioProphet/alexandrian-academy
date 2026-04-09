@@ -1,0 +1,7 @@
+{
+  "kind": "OracleBlockedReview",
+  "claimRef": "claim:bridge-closure:001",
+  "scopeRef": "scope:local-civic-demo",
+  "reason": "requires additional human review before publication",
+  "route": "blocked-review"
+}
