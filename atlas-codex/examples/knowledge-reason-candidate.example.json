@@ -1,0 +1,14 @@
+{
+  "kind": "AtlasCodexCandidateClaim",
+  "claimRef": "claim:bridge-closure:001",
+  "scopeRef": "scope:local-civic-demo",
+  "statement": {
+    "subject": "bridge:north-span",
+    "predicate": "state",
+    "object": "closed"
+  },
+  "epistemics": {
+    "selected": "supported",
+    "posterior": 0.927053824363
+  }
+}
