@@ -1,0 +1,67 @@
+{
+  "$schema": "../../../platform-contracts/schemas/unit-map.schema.json",
+  "header": {
+    "object_id": "UNITMAP::AA::PROB-RP::v2",
+    "object_type": "unit_map",
+    "object_version": "v2",
+    "created_at": "2026-04-09T06:40:00Z",
+    "created_by_contributor_id": "chatgpt-system",
+    "created_by_role": "system",
+    "status": "draft",
+    "policy_tags": ["academy", "probability", "agentic", "mastery-graph"]
+  },
+  "lom": {
+    "general": {
+      "identifier": "probability-random-processes.unit-map.v2",
+      "title": "Probability and Random Processes Unit Map",
+      "language": "en",
+      "description": "Mastery graph for the probability and random processes course across thirteen chapters.",
+      "keyword": ["unit map", "probability", "random processes", "mastery graph"]
+    },
+    "lifeCycle": {
+      "version": "v2",
+      "status": "draft"
+    },
+    "rights": {
+      "license": "MIT",
+      "copyrightAndOtherRestrictions": "no"
+    }
+  },
+  "extension": {
+    "jurisdiction_id": "GENERIC",
+    "pedagogy_id": "agentic.mastery.v1",
+    "map_model": "mastery_graph",
+    "cycle_policy": "forbid",
+    "nodes": [
+      {"node_id": "ch1", "node_type": "learning_object_ref", "ref_id": "CURR::AA::PROB-RP::CH1", "pedagogy_tags": ["foundation"]},
+      {"node_id": "ch2", "node_type": "learning_object_ref", "ref_id": "CURR::AA::PROB-RP::CH2", "pedagogy_tags": ["foundation"]},
+      {"node_id": "ch3", "node_type": "learning_object_ref", "ref_id": "CURR::AA::PROB-RP::CH3", "pedagogy_tags": ["discrete"]},
+      {"node_id": "ch4", "node_type": "learning_object_ref", "ref_id": "CURR::AA::PROB-RP::CH4", "pedagogy_tags": ["continuous"]},
+      {"node_id": "ch5", "node_type": "learning_object_ref", "ref_id": "CURR::AA::PROB-RP::CH5", "pedagogy_tags": ["transforms"]},
+      {"node_id": "ch6", "node_type": "learning_object_ref", "ref_id": "CURR::AA::PROB-RP::CH6", "pedagogy_tags": ["markov"]},
+      {"node_id": "ch7", "node_type": "learning_object_ref", "ref_id": "CURR::AA::PROB-RP::CH7", "pedagogy_tags": ["convergence"]},
+      {"node_id": "ch8", "node_type": "learning_object_ref", "ref_id": "CURR::AA::PROB-RP::CH8", "pedagogy_tags": ["process-foundations"]},
+      {"node_id": "ch9", "node_type": "learning_object_ref", "ref_id": "CURR::AA::PROB-RP::CH9", "pedagogy_tags": ["stationary-processes"]},
+      {"node_id": "ch10", "node_type": "learning_object_ref", "ref_id": "CURR::AA::PROB-RP::CH10", "pedagogy_tags": ["renewals"]},
+      {"node_id": "ch11", "node_type": "learning_object_ref", "ref_id": "CURR::AA::PROB-RP::CH11", "pedagogy_tags": ["queueing"]},
+      {"node_id": "ch12", "node_type": "learning_object_ref", "ref_id": "CURR::AA::PROB-RP::CH12", "pedagogy_tags": ["martingales"]},
+      {"node_id": "ch13", "node_type": "learning_object_ref", "ref_id": "CURR::AA::PROB-RP::CH13", "pedagogy_tags": ["brownian-motion", "ito-calculus"]}
+    ],
+    "edges": [
+      {"edge_id": "e01", "from_node_id": "ch1", "to_node_id": "ch2", "edge_type": "prerequisite"},
+      {"edge_id": "e02", "from_node_id": "ch2", "to_node_id": "ch3", "edge_type": "prerequisite"},
+      {"edge_id": "e03", "from_node_id": "ch3", "to_node_id": "ch4", "edge_type": "prerequisite"},
+      {"edge_id": "e04", "from_node_id": "ch4", "to_node_id": "ch5", "edge_type": "prerequisite"},
+      {"edge_id": "e05", "from_node_id": "ch5", "to_node_id": "ch6", "edge_type": "prerequisite"},
+      {"edge_id": "e06", "from_node_id": "ch6", "to_node_id": "ch7", "edge_type": "prerequisite"},
+      {"edge_id": "e07", "from_node_id": "ch7", "to_node_id": "ch8", "edge_type": "prerequisite"},
+      {"edge_id": "e08", "from_node_id": "ch8", "to_node_id": "ch9", "edge_type": "prerequisite"},
+      {"edge_id": "e09", "from_node_id": "ch9", "to_node_id": "ch10", "edge_type": "prerequisite"},
+      {"edge_id": "e10", "from_node_id": "ch10", "to_node_id": "ch11", "edge_type": "prerequisite"},
+      {"edge_id": "e11", "from_node_id": "ch11", "to_node_id": "ch12", "edge_type": "prerequisite"},
+      {"edge_id": "e12", "from_node_id": "ch12", "to_node_id": "ch13", "edge_type": "prerequisite"},
+      {"edge_id": "e13", "from_node_id": "ch6", "to_node_id": "ch12", "edge_type": "recommendedNext"},
+      {"edge_id": "e14", "from_node_id": "ch7", "to_node_id": "ch12", "edge_type": "recommendedNext"}
+    ]
+  }
+}
