@@ -1,0 +1,27 @@
+{
+  "$schema": "../../platform-contracts/schemas/curriculum-plan.schema.json",
+  "id": "CURR::AA::PROB-RP::v1",
+  "title": "Probability and Random Processes (Agentic Track)",
+  "status": "draft",
+  "jurisdiction_id": "GENERIC",
+  "pedagogy_id": "agentic.mastery.v1",
+  "description": "Evidence-first stochastic curriculum covering probability foundations, random processes, convergence, martingales, and diffusion methods.",
+  "course_manifest": {
+    "course_id": "probability-random-processes.v1",
+    "chapter_count": 13,
+    "implemented_chapters": [1,2,3,4,5,6,7],
+    "in_progress_chapters": [8,9,10,11,12,13]
+  },
+  "learning_objectives": [
+    "Model probability spaces, random variables, and distributions rigorously.",
+    "Reason correctly about convergence modes, limit theorems, and stochastic processes.",
+    "Construct and critique theorem-level probabilistic arguments using claim-graph checks.",
+    "Progress from foundational probability to martingales and Brownian motion with formal prerequisites preserved."
+  ],
+  "assessment_model": {
+    "engine": "ProbabilityTeacherTeam",
+    "version": "v7",
+    "modes": ["concept", "theorem", "exercise", "claim-graph"],
+    "promotion_rule": "chapter certification gates + governance review"
+  }
+}
