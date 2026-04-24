@@ -1,0 +1,54 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "alexandrian-academy://schemas/learning-loop-record.schema.json",
+  "title": "LearningLoopRecord",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["header", "curriculum_ref", "recommendation", "evidence_trace", "governance_trace"],
+  "properties": {
+    "header": { "$ref": "universal-header.schema.json" },
+    "curriculum_ref": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["object_id", "object_type", "state"],
+      "properties": {
+        "object_id": { "type": "string", "minLength": 3 },
+        "object_type": { "type": "string", "minLength": 3 },
+        "state": { "type": "string", "enum": ["sandbox", "canon"] }
+      }
+    },
+    "recommendation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["recommendation_id", "action_type", "summary", "channel"],
+      "properties": {
+        "recommendation_id": { "type": "string", "minLength": 3 },
+        "action_type": { "type": "string", "minLength": 3 },
+        "summary": { "type": "string", "minLength": 3 },
+        "channel": { "type": "string", "minLength": 2 }
+      }
+    },
+    "evidence_trace": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["standards_refs", "evidence_anchor_refs", "memory_refs", "search_refs"],
+      "properties": {
+        "standards_refs": { "type": "array", "items": { "type": "string" } },
+        "evidence_anchor_refs": { "type": "array", "items": { "type": "string" } },
+        "memory_refs": { "type": "array", "items": { "type": "string" } },
+        "search_refs": { "type": "array", "items": { "type": "string" } },
+        "agentplane_run_refs": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "governance_trace": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["oracle_evaluation_refs", "moirai_changeset_refs", "policy_check_refs"],
+      "properties": {
+        "oracle_evaluation_refs": { "type": "array", "items": { "type": "string" } },
+        "moirai_changeset_refs": { "type": "array", "items": { "type": "string" } },
+        "policy_check_refs": { "type": "array", "items": { "type": "string" } }
+      }
+    }
+  }
+}

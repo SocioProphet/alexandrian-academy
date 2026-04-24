@@ -14,6 +14,7 @@ SCHEMA_BY_TYPE = {
     "CurriculumPlan": "curriculum-plan.schema.json",
     "UnitMap": "unit-map.schema.json",
     "AssessmentPlan": "assessment-plan.schema.json",
+    "LearningLoopRecord": "learning-loop-record.schema.json",
 }
 
 def load_json(path: Path) -> Dict[str, Any]:
@@ -24,7 +25,6 @@ def build_registry() -> Registry:
     registry = Registry()
     for schema_path in SCHEMAS_DIR.glob("*.schema.json"):
         schema = load_json(schema_path)
-        # Register by filename so local $ref like "universal-header.schema.json" resolves
         registry = registry.with_resource(
             schema_path.name,
             Resource.from_contents(schema)
@@ -51,12 +51,10 @@ def canon_gates(obj: Dict[str, Any]) -> List[str]:
     promo = ext.get("promotion_intent", {})
     target_space = promo.get("target_space")
 
-    # Gate G0: policy_tags exists (schema requires non-null list, but ensure it's a list)
     policy_tags = header.get("policy_tags")
     if not isinstance(policy_tags, list):
         errs.append("Gate G0: header.policy_tags must be a list (non-null).")
 
-    # Gate G1: If accepted+canon, EvidenceBundle must exist with required minItems (schema enforces minItems, but ensure it exists)
     if status == "accepted" and target_space == "canon":
         if "evidence" not in obj or obj.get("evidence") is None:
             errs.append("Gate G1: accepted Canon objects must include evidence (EvidenceBundle).")
@@ -69,7 +67,6 @@ def canon_gates(obj: Dict[str, Any]) -> List[str]:
             if not isinstance(arts, list) or len(arts) < 1:
                 errs.append("Gate G1: evidence.source_artifact_ids must have >= 1 item for accepted Canon objects.")
 
-        # Gate G2: Jurisdiction + pedagogy must be present for Canon
         if not ext.get("jurisdiction_id"):
             errs.append("Gate G2: extension.jurisdiction_id is required for accepted Canon objects.")
         if not ext.get("pedagogy_id"):
