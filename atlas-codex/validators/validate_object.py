@@ -16,6 +16,7 @@ SCHEMA_BY_TYPE = {
     "AssessmentPlan": "assessment-plan.schema.json",
     "LearningLoopRecord": "learning-loop-record.schema.json",
     "LearningActionExplanation": "learning-action-explanation.schema.json",
+    "LearningSearchRecord": "learning-search-record.schema.json",
 }
 
 def load_json(path: Path) -> Dict[str, Any]:
