@@ -2,7 +2,7 @@ VENV=.venv
 PY=$(VENV)/bin/python
 PIP=$(VENV)/bin/pip
 
-.PHONY: venv deps validate validate-examples validate-generated-explanation validate-generated-search-record validate-generated-memory-record validate-explanation-server validate-memory-writer validate-search-publisher validate-explanation-bundle validate-templates verify-diagrams validate-strict
+.PHONY: venv deps validate validate-examples validate-generated-explanation validate-generated-search-record validate-generated-memory-record validate-explanation-server validate-memory-writer validate-search-publisher validate-explanation-bundle validate-explanation-bundle-e2e validate-templates verify-diagrams validate-strict
 
 venv:
 	python3 -m venv $(VENV)
@@ -10,7 +10,7 @@ venv:
 deps: venv
 	$(PIP) install -r atlas-codex/validators/requirements.txt
 
-validate: deps verify-diagrams validate-examples validate-generated-explanation validate-generated-search-record validate-generated-memory-record validate-explanation-server validate-memory-writer validate-search-publisher validate-explanation-bundle validate-templates
+validate: deps verify-diagrams validate-examples validate-generated-explanation validate-generated-search-record validate-generated-memory-record validate-explanation-server validate-memory-writer validate-search-publisher validate-explanation-bundle validate-explanation-bundle-e2e validate-templates
 
 validate-examples: deps
 	$(PY) atlas-codex/validators/validate_object.py platform-contracts/examples/curriculum-plan.sandbox.json
@@ -45,6 +45,9 @@ validate-search-publisher: deps
 
 validate-explanation-bundle: deps
 	PYTHONPATH=tools $(PY) tools/test_publish_learning_explanation_bundle.py
+
+validate-explanation-bundle-e2e: deps
+	PYTHONPATH=tools $(PY) tools/test_publish_learning_explanation_bundle_e2e.py
 
 validate-templates: deps
 	$(PY) atlas-codex/validators/validate_object.py templates/curriculum-builder/v1/curriculum-plan.template.json || true
