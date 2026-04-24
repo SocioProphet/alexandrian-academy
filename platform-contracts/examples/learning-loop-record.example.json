@@ -1,0 +1,35 @@
+{
+  "header": {
+    "object_id": "llr_00000001",
+    "object_type": "LearningLoopRecord",
+    "object_version": "0.1.0",
+    "created_at": "2026-04-24T18:55:00Z",
+    "created_by_contributor_id": "system.alexandrian",
+    "created_by_role": "system",
+    "status": "draft",
+    "policy_tags": ["learning-loop", "agent-assisted", "evidence-first"]
+  },
+  "curriculum_ref": {
+    "object_id": "curriculum.example.0001",
+    "object_type": "CurriculumPlan",
+    "state": "sandbox"
+  },
+  "recommendation": {
+    "recommendation_id": "nba.example.0001",
+    "action_type": "NEXT_LEARNING_ACTION",
+    "summary": "Review cited evidence span before attempting the next assessment item.",
+    "channel": "chat"
+  },
+  "evidence_trace": {
+    "standards_refs": ["STD::US::PA::PA-ELA::v1::K:Reading:FoundationalSkills:RF.1.1"],
+    "evidence_anchor_refs": ["ariadne.span.example.0001"],
+    "memory_refs": ["memory-mesh://learning-context/example-0001"],
+    "search_refs": ["sherlock://learning-search/example-0001"],
+    "agentplane_run_refs": ["agentplane://run/example-0001"]
+  },
+  "governance_trace": {
+    "oracle_evaluation_refs": ["oracle://evaluation/example-0001"],
+    "moirai_changeset_refs": ["moirai://changeset/example-0001"],
+    "policy_check_refs": ["policy-fabric://decision/example-0001"]
+  }
+}
