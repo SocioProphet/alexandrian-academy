@@ -1,0 +1,44 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "alexandrian-academy://schemas/learning-action-explanation.schema.json",
+  "title": "LearningActionExplanation",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["header", "learning_loop_record_ref", "answer", "evidence", "governance"],
+  "properties": {
+    "header": { "$ref": "universal-header.schema.json" },
+    "learning_loop_record_ref": { "type": "string", "minLength": 3 },
+    "answer": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["recommended_action", "plain_language_reason", "channel"],
+      "properties": {
+        "recommended_action": { "type": "string", "minLength": 3 },
+        "plain_language_reason": { "type": "string", "minLength": 3 },
+        "channel": { "type": "string", "minLength": 2 }
+      }
+    },
+    "evidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["standards_refs", "evidence_anchor_refs", "memory_refs", "search_refs"],
+      "properties": {
+        "standards_refs": { "type": "array", "items": { "type": "string" } },
+        "evidence_anchor_refs": { "type": "array", "items": { "type": "string" } },
+        "memory_refs": { "type": "array", "items": { "type": "string" } },
+        "search_refs": { "type": "array", "items": { "type": "string" } },
+        "agentplane_run_refs": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "governance": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["oracle_evaluation_refs", "moirai_changeset_refs", "policy_check_refs"],
+      "properties": {
+        "oracle_evaluation_refs": { "type": "array", "items": { "type": "string" } },
+        "moirai_changeset_refs": { "type": "array", "items": { "type": "string" } },
+        "policy_check_refs": { "type": "array", "items": { "type": "string" } }
+      }
+    }
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "header": {
+    "object_id": "lae_00000001",
+    "object_type": "LearningActionExplanation",
+    "object_version": "0.1.0",
+    "created_at": "2026-04-24T19:10:00Z",
+    "created_by_contributor_id": "system.alexandrian",
+    "created_by_role": "system",
+    "status": "draft",
+    "policy_tags": ["learning-loop", "explanation", "evidence-first"]
+  },
+  "learning_loop_record_ref": "llr_00000001",
+  "answer": {
+    "recommended_action": "Review cited evidence span before attempting the next assessment item.",
+    "plain_language_reason": "This action was recommended because the learning loop links the current curriculum object to a cited standard, an evidence anchor, prior memory context, a Sherlock retrieval trail, Oracle evaluation references, Moirai governance state, and policy checks.",
+    "channel": "chat"
+  },
+  "evidence": {
+    "standards_refs": ["STD::US::PA::PA-ELA::v1::K:Reading:FoundationalSkills:RF.1.1"],
+    "evidence_anchor_refs": ["ariadne.span.example.0001"],
+    "memory_refs": ["memory-mesh://learning-context/example-0001"],
+    "search_refs": ["sherlock://learning-search/example-0001"],
+    "agentplane_run_refs": ["agentplane://run/example-0001"]
+  },
+  "governance": {
+    "oracle_evaluation_refs": ["oracle://evaluation/example-0001"],
+    "moirai_changeset_refs": ["moirai://changeset/example-0001"],
+    "policy_check_refs": ["policy-fabric://decision/example-0001"]
+  }
+}
