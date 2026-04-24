@@ -2,7 +2,7 @@ VENV=.venv
 PY=$(VENV)/bin/python
 PIP=$(VENV)/bin/pip
 
-.PHONY: venv deps validate validate-examples validate-templates verify-diagrams validate-strict
+.PHONY: venv deps validate validate-examples validate-generated-explanation validate-templates verify-diagrams validate-strict
 
 venv:
 	python3 -m venv $(VENV)
@@ -10,13 +10,17 @@ venv:
 deps: venv
 	$(PIP) install -r atlas-codex/validators/requirements.txt
 
-validate: deps verify-diagrams validate-examples validate-templates
+validate: deps verify-diagrams validate-examples validate-generated-explanation validate-templates
 
 validate-examples: deps
 	$(PY) atlas-codex/validators/validate_object.py platform-contracts/examples/curriculum-plan.sandbox.json
 	$(PY) atlas-codex/validators/validate_object.py platform-contracts/examples/curriculum-plan.canon.json
 	$(PY) atlas-codex/validators/validate_object.py platform-contracts/examples/learning-loop-record.example.json
 	$(PY) atlas-codex/validators/validate_object.py platform-contracts/examples/learning-action-explanation.example.json
+
+validate-generated-explanation: deps
+	$(PY) tools/explain_learning_action.py platform-contracts/examples/learning-loop-record.example.json /tmp/alexandrian-learning-action-explanation.generated.json
+	$(PY) atlas-codex/validators/validate_object.py /tmp/alexandrian-learning-action-explanation.generated.json
 
 validate-templates: deps
 	$(PY) atlas-codex/validators/validate_object.py templates/curriculum-builder/v1/curriculum-plan.template.json || true
