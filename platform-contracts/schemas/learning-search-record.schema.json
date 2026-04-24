@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "alexandrian-academy://schemas/learning-search-record.schema.json",
+  "title": "LearningSearchRecord",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["header", "source", "entity_type", "title", "text", "target_ref", "evidence_ref_ids", "memory_ref_ids", "search_ref_ids", "governance_ref_ids"],
+  "properties": {
+    "header": { "$ref": "universal-header.schema.json" },
+    "source": { "type": "string", "const": "ALEXANDRIAN_ACADEMY" },
+    "entity_type": { "type": "string", "enum": ["LEARNING_ACTION_EXPLANATION", "LEARNING_LOOP_RECORD"] },
+    "title": { "type": "string", "minLength": 3 },
+    "text": { "type": "string", "minLength": 3 },
+    "target_ref": { "type": "string", "minLength": 3 },
+    "evidence_ref_ids": { "type": "array", "items": { "type": "string" } },
+    "memory_ref_ids": { "type": "array", "items": { "type": "string" } },
+    "search_ref_ids": { "type": "array", "items": { "type": "string" } },
+    "governance_ref_ids": { "type": "array", "items": { "type": "string" } },
+    "agentplane_run_ref_ids": { "type": "array", "items": { "type": "string" } },
+    "final_score": { "type": "number", "minimum": 0, "maximum": 1 }
+  }
+}
