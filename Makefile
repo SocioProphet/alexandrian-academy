@@ -15,6 +15,7 @@ validate: deps verify-diagrams validate-examples validate-templates
 validate-examples: deps
 	$(PY) atlas-codex/validators/validate_object.py platform-contracts/examples/curriculum-plan.sandbox.json
 	$(PY) atlas-codex/validators/validate_object.py platform-contracts/examples/curriculum-plan.canon.json
+	$(PY) atlas-codex/validators/validate_object.py platform-contracts/examples/learning-loop-record.example.json
 
 validate-templates: deps
 	$(PY) atlas-codex/validators/validate_object.py templates/curriculum-builder/v1/curriculum-plan.template.json || true
