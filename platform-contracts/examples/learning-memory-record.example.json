@@ -1,0 +1,41 @@
+{
+  "header": {
+    "object_id": "lmr_00000001",
+    "object_type": "LearningMemoryRecord",
+    "object_version": "0.1.0",
+    "created_at": "2026-04-24T20:05:00Z",
+    "created_by_contributor_id": "system.alexandrian",
+    "created_by_role": "system",
+    "status": "draft",
+    "policy_tags": ["learning-loop", "memory", "evidence-first"]
+  },
+  "learning_loop_record_ref": "llr_00000001",
+  "memoryd_write": {
+    "envelope": {
+      "user_id": "learner.example",
+      "agent_id": "alexandrian.learning-agent",
+      "run_id": "agentplane://run/example-0001",
+      "workload_id": "alexandrian.learning-loop",
+      "workspace_id": "academy.example",
+      "channel": "chat",
+      "thread_id": "thread.example.0001",
+      "source_interface": "alexandrian-academy",
+      "metadata": {
+        "learning_loop_record_ref": "llr_00000001",
+        "curriculum_ref": "curriculum.example.0001"
+      }
+    },
+    "content": "Learning action explanation: Review cited evidence span before attempting the next assessment item. Grounded by standards, evidence anchors, memory context, Sherlock retrieval, Oracle evaluation, Moirai governance, and policy checks.",
+    "memory_class": "decision",
+    "persist_to_backend": true,
+    "metadata": {
+      "source": "ALEXANDRIAN_ACADEMY",
+      "entity_type": "LEARNING_ACTION_EXPLANATION",
+      "evidence_ref_ids": ["ariadne.span.example.0001"],
+      "search_ref_ids": ["sherlock://learning-search/example-0001"],
+      "governance_ref_ids": ["oracle://evaluation/example-0001", "moirai://changeset/example-0001", "policy-fabric://decision/example-0001"],
+      "agentplane_run_ref_ids": ["agentplane://run/example-0001"]
+    },
+    "tags": ["alexandrian-academy", "learning-loop", "why-recommended", "evidence-first"]
+  }
+}

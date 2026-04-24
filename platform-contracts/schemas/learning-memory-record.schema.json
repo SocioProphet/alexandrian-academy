@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "alexandrian-academy://schemas/learning-memory-record.schema.json",
+  "title": "LearningMemoryRecord",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["header", "learning_loop_record_ref", "memoryd_write"],
+  "properties": {
+    "header": { "$ref": "universal-header.schema.json" },
+    "learning_loop_record_ref": { "type": "string", "minLength": 3 },
+    "memoryd_write": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["envelope", "content", "memory_class", "persist_to_backend", "metadata", "tags"],
+      "properties": {
+        "envelope": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["user_id", "agent_id", "run_id", "workload_id", "source_interface"],
+          "properties": {
+            "user_id": { "type": "string", "minLength": 1 },
+            "agent_id": { "type": "string", "minLength": 1 },
+            "run_id": { "type": "string", "minLength": 1 },
+            "workload_id": { "type": "string", "minLength": 1 },
+            "workspace_id": { "type": "string" },
+            "channel": { "type": "string" },
+            "thread_id": { "type": "string" },
+            "source_interface": { "type": "string", "minLength": 1 },
+            "metadata": { "type": "object" }
+          }
+        },
+        "content": { "type": "string", "minLength": 1 },
+        "memory_class": { "type": "string", "enum": ["interaction", "fact", "preference", "decision", "summary", "scratch"] },
+        "persist_to_backend": { "type": "boolean" },
+        "metadata": { "type": "object" },
+        "tags": { "type": "array", "items": { "type": "string" } }
+      }
+    }
+  }
+}
