@@ -1,0 +1,246 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "alexandrian-academy://schemas/constitutional-floor-pack.schema.json",
+  "title": "ConstitutionalFloorPack",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "header",
+    "constitutional_floor_id",
+    "floor_version",
+    "status",
+    "network_scope",
+    "hard_invariants",
+    "guardian_controls",
+    "interaction_space_policy",
+    "partner_governance",
+    "complaint_routing",
+    "steward_constraints",
+    "enforcement_refs"
+  ],
+  "properties": {
+    "header": {
+      "$ref": "universal-header.schema.json"
+    },
+    "constitutional_floor_id": {
+      "type": "string",
+      "minLength": 8
+    },
+    "floor_version": {
+      "type": "string",
+      "minLength": 1
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "draft",
+        "proposed",
+        "accepted",
+        "deprecated",
+        "retracted"
+      ]
+    },
+    "network_scope": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "scope_type",
+        "scope_ref"
+      ],
+      "properties": {
+        "scope_type": {
+          "type": "string",
+          "enum": [
+            "network",
+            "jurisdiction_family",
+            "institution_family"
+          ]
+        },
+        "scope_ref": {
+          "type": "string",
+          "minLength": 2
+        }
+      }
+    },
+    "hard_invariants": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "enum": [
+          "no_private_adult_minor_channels",
+          "guardian_visibility_required_by_default",
+          "delegation_non_transitive",
+          "partner_certification_required",
+          "local_first_minimal_data",
+          "bounded_steward_powers",
+          "complaint_route_required",
+          "incident_clock_required",
+          "policy_override_cannot_weaken_floor"
+        ]
+      },
+      "uniqueItems": true
+    },
+    "guardian_controls": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "guardian_visibility_default",
+        "guardian_export_right",
+        "guardian_notice_required",
+        "adult_minor_private_channel_policy"
+      ],
+      "properties": {
+        "guardian_visibility_default": {
+          "type": "boolean"
+        },
+        "guardian_export_right": {
+          "type": "boolean"
+        },
+        "guardian_notice_required": {
+          "type": "boolean"
+        },
+        "adult_minor_private_channel_policy": {
+          "type": "string",
+          "enum": [
+            "forbid",
+            "allow_with_explicit_floor_waiver"
+          ]
+        }
+      }
+    },
+    "interaction_space_policy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "minor_spaces_require_supervision",
+        "off_platform_migration_red_flag",
+        "allowed_space_classes"
+      ],
+      "properties": {
+        "minor_spaces_require_supervision": {
+          "type": "boolean"
+        },
+        "off_platform_migration_red_flag": {
+          "type": "boolean"
+        },
+        "allowed_space_classes": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "public_forum",
+              "guardian_visible_thread",
+              "staff_review_channel",
+              "curriculum_review_queue",
+              "complaint_intake"
+            ]
+          },
+          "uniqueItems": true
+        }
+      }
+    },
+    "partner_governance": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "certification_required",
+        "attestation_required",
+        "revalidation_days"
+      ],
+      "properties": {
+        "certification_required": {
+          "type": "boolean"
+        },
+        "attestation_required": {
+          "type": "boolean"
+        },
+        "revalidation_days": {
+          "type": "integer",
+          "minimum": 1
+        }
+      }
+    },
+    "complaint_routing": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "route_required",
+        "severity_clock_required",
+        "appeal_layers"
+      ],
+      "properties": {
+        "route_required": {
+          "type": "boolean"
+        },
+        "severity_clock_required": {
+          "type": "boolean"
+        },
+        "appeal_layers": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "enum": [
+              "local_review",
+              "auditor_review",
+              "constitutional_review"
+            ]
+          }
+        }
+      }
+    },
+    "steward_constraints": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "emergency_actions_auto_expire",
+        "rationale_required",
+        "review_required"
+      ],
+      "properties": {
+        "emergency_actions_auto_expire": {
+          "type": "boolean"
+        },
+        "rationale_required": {
+          "type": "boolean"
+        },
+        "review_required": {
+          "type": "boolean"
+        }
+      }
+    },
+    "enforcement_refs": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "minLength": 3
+      }
+    },
+    "jurisdiction_overlay_refs": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 3
+      }
+    },
+    "amendment_policy": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "proposal_window_days": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "review_window_days": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "floor_weakening_forbidden": {
+          "type": "boolean"
+        }
+      }
+    }
+  }
+}
