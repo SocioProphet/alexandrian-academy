@@ -1,0 +1,54 @@
+{
+  "header": {
+    "object_id": "CONSTITUTIONAL-REVIEW-EVENT-EXAMPLE-0001",
+    "object_type": "ConstitutionalReviewEvent",
+    "object_version": "0.1",
+    "created_at": "2026-05-05T00:20:00Z",
+    "created_by_contributor_id": "CONTRIB-REVIEW-BRIDGE",
+    "created_by_role": "reviewer",
+    "status": "proposed",
+    "policy_tags": ["public_commons"]
+  },
+  "event_id": "CONSTITUTIONAL-REVIEW-EVENT-EXAMPLE-0001",
+  "review_layer": "M3",
+  "case_ref": "CASE-ALEXANDRIAN-BRIDGE-0001",
+  "trigger": "model_or_scoring_drift",
+  "review_body_ref": {
+    "body_id": "CONSTITUTIONAL-PANEL-EXAMPLE-0001",
+    "body_type": "mixed_panel"
+  },
+  "subject_refs": [
+    "MOD-EVENT-EXAMPLE-0001",
+    "META-MOD-EVENT-EXAMPLE-0001"
+  ],
+  "target_event_refs": [
+    "MOD-EVENT-EXAMPLE-0001",
+    "META-MOD-EVENT-EXAMPLE-0001"
+  ],
+  "bridge_refs": {
+    "learning_loop_record_ref": "LearningLoopRecord://example/0001",
+    "learning_action_explanation_ref": "LearningActionExplanation://example/0001",
+    "learning_search_record_ref": "LearningSearchRecord://example/0001",
+    "learning_memory_record_ref": "LearningMemoryRecord://example/0001",
+    "oracle_evaluation_ref": "OracleOfDelphi://evaluation/example-0001",
+    "moirai_changeset_ref": "MoiraiLedger://changeset/example-0001",
+    "policy_parameter_snapshot_ref": "policy/parameters/policy-parameter-sheet.v1.json",
+    "runtime_membrane_decision_ref": "MembraneDecision://example/0001"
+  },
+  "decision": "remand",
+  "basis_refs": {
+    "constitutional_floor_ref": "ConstitutionalFloorPack://alexandrian/floor/v0.1",
+    "charter_clause_refs": [
+      "SlashTopicPack://alexandrian/reasoning/charter#bridge-publication-review"
+    ],
+    "evidence_refs": ["AegisVault://evidence/example-0001"],
+    "affected_policy_refs": ["policy/parameters/policy-parameter-sheet.v1.json"]
+  },
+  "ordered_remediation_refs": [
+    "Remediation://require-bridge-review-policy-update/example-0001"
+  ],
+  "rationale_text": "Constitutional review remands the case for bridge-review policy clarification before future search or memory publication decisions become routine.",
+  "status": "remanded",
+  "created_at": "2026-05-05T00:20:00Z",
+  "decided_at": "2026-05-05T00:30:00Z"
+}
