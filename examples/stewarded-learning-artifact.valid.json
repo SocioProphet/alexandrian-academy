@@ -1,0 +1,77 @@
+{
+  "header": {
+    "object_id": "sla_example_valid_001",
+    "object_type": "StewardedLearningArtifact",
+    "object_version": "0.1.0",
+    "created_at": "2026-06-06T20:00:00Z",
+    "created_by_contributor_id": "contrib_keeper_001",
+    "created_by_role": "curator",
+    "status": "proposed",
+    "policy_tags": [
+      "ioes",
+      "stewardship",
+      "sandbox"
+    ]
+  },
+  "artifact_id": "sla_lesson_stewardship_001",
+  "artifact_type": "lesson_object",
+  "title": "Stewardship versus Ownership in Knowledge Transmission",
+  "stewardship_status": "active",
+  "primary_keeper_ref": "keeper_contrib_001",
+  "successor_refs": [
+    "keeper_contrib_002"
+  ],
+  "mentor_refs": [
+    "mentor_contrib_001"
+  ],
+  "apprentice_refs": [
+    "apprentice_contrib_001"
+  ],
+  "evidence_bundle_refs": [
+    "evb_stewardship_media_transitions_001"
+  ],
+  "curriculum_object_refs": [
+    "unit_ioes_civilizational_transmission_001"
+  ],
+  "jurisdiction_refs": [
+    "US-PA"
+  ],
+  "pedagogy_refs": [
+    "lifelong-learning.v1"
+  ],
+  "accessibility_refs": [
+    "wcag-2.2-aa"
+  ],
+  "policy_snapshot_refs": [
+    "policy_ioes_learning_artifact_review_001"
+  ],
+  "changeset_refs": [
+    "chg_stewarded_artifact_candidate_001"
+  ],
+  "review_interval_days": 90,
+  "last_reviewed_at": "2026-06-06T20:00:00Z",
+  "projection_constraints": {
+    "allowed_uses": [
+      "learner-facing explanation",
+      "mentor review",
+      "governed curriculum planning"
+    ],
+    "disallowed_uses": [
+      "learner scoring without review",
+      "employment screening",
+      "unconsented behavioral profiling"
+    ]
+  },
+  "succession": {
+    "posture": "defined",
+    "successor_refs": [
+      "keeper_contrib_002"
+    ],
+    "requires_review": true,
+    "abandonment_threshold_days": 120
+  },
+  "non_claims": [
+    "This artifact is not a learner score.",
+    "This artifact is not canon truth until promoted by governance."
+  ]
+}
