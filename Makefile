@@ -2,7 +2,7 @@ VENV=.venv
 PY=$(VENV)/bin/python
 PIP=$(VENV)/bin/pip
 
-.PHONY: venv deps validate validate-examples validate-generated-explanation validate-generated-search-record validate-generated-memory-record validate-explanation-server validate-memory-writer validate-search-publisher validate-explanation-bundle validate-explanation-bundle-e2e validate-templates verify-diagrams validate-strict
+.PHONY: venv deps validate validate-examples validate-stewarded-learning-artifact validate-generated-explanation validate-generated-search-record validate-generated-memory-record validate-explanation-server validate-memory-writer validate-search-publisher validate-explanation-bundle validate-explanation-bundle-e2e validate-templates verify-diagrams validate-strict
 
 venv:
 	python3 -m venv $(VENV)
@@ -10,7 +10,7 @@ venv:
 deps: venv
 	$(PIP) install -r atlas-codex/validators/requirements.txt
 
-validate: deps verify-diagrams validate-examples validate-generated-explanation validate-generated-search-record validate-generated-memory-record validate-explanation-server validate-memory-writer validate-search-publisher validate-explanation-bundle validate-explanation-bundle-e2e validate-templates
+validate: deps verify-diagrams validate-examples validate-stewarded-learning-artifact validate-generated-explanation validate-generated-search-record validate-generated-memory-record validate-explanation-server validate-memory-writer validate-search-publisher validate-explanation-bundle validate-explanation-bundle-e2e validate-templates
 
 validate-examples: deps
 	$(PY) atlas-codex/validators/validate_object.py platform-contracts/examples/curriculum-plan.sandbox.json
@@ -19,6 +19,9 @@ validate-examples: deps
 	$(PY) atlas-codex/validators/validate_object.py platform-contracts/examples/learning-action-explanation.example.json
 	$(PY) atlas-codex/validators/validate_object.py platform-contracts/examples/learning-search-record.example.json
 	$(PY) atlas-codex/validators/validate_object.py platform-contracts/examples/learning-memory-record.example.json
+
+validate-stewarded-learning-artifact: deps
+	$(PY) tools/tests/test_stewarded_learning_artifact.py
 
 validate-generated-explanation: deps
 	$(PY) tools/explain_learning_action.py platform-contracts/examples/learning-loop-record.example.json /tmp/alexandrian-learning-action-explanation.generated.json
