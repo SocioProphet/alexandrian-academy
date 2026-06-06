@@ -1,0 +1,66 @@
+{
+  "header": {
+    "object_id": "sla_example_rejected_001",
+    "object_type": "StewardedLearningArtifact",
+    "object_version": "0.1.0",
+    "created_at": "2026-06-06T20:05:00Z",
+    "created_by_contributor_id": "contrib_system_001",
+    "created_by_role": "system",
+    "status": "accepted",
+    "policy_tags": [
+      "ioes",
+      "stewardship",
+      "canon-request"
+    ]
+  },
+  "artifact_id": "sla_lesson_unkept_001",
+  "artifact_type": "lesson_object",
+  "title": "Unkept Canon Candidate",
+  "stewardship_status": "orphaned",
+  "primary_keeper_ref": "missing_keeper",
+  "successor_refs": [],
+  "mentor_refs": [],
+  "apprentice_refs": [],
+  "evidence_bundle_refs": [
+    "evb_unkept_001"
+  ],
+  "curriculum_object_refs": [
+    "unit_unkept_001"
+  ],
+  "jurisdiction_refs": [
+    "US-PA"
+  ],
+  "pedagogy_refs": [
+    "lifelong-learning.v1"
+  ],
+  "accessibility_refs": [
+    "wcag-2.2-aa"
+  ],
+  "policy_snapshot_refs": [
+    "policy_ioes_learning_artifact_review_001"
+  ],
+  "changeset_refs": [
+    "chg_unkept_canon_request_001"
+  ],
+  "review_interval_days": 90,
+  "last_reviewed_at": "2025-12-01T00:00:00Z",
+  "projection_constraints": {
+    "allowed_uses": [
+      "historical review only"
+    ],
+    "disallowed_uses": [
+      "canon promotion",
+      "learner assignment",
+      "automated next-best-action"
+    ]
+  },
+  "succession": {
+    "posture": "missing",
+    "successor_refs": [],
+    "requires_review": true,
+    "abandonment_threshold_days": 30
+  },
+  "non_claims": [
+    "This example is expected to fail semantic IOES validation because it requests accepted status while orphaned and without succession."
+  ]
+}
