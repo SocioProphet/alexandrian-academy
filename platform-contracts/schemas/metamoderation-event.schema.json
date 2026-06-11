@@ -1,0 +1,64 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "alexandrian-academy://schemas/metamoderation-event.schema.json",
+  "title": "MetaModerationEvent",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["header", "event_id", "review_layer", "reviewer_ref", "target_moderation_event_ref", "fairness_judgment", "basis_refs", "status", "created_at"],
+  "properties": {
+    "header": {"$ref": "universal-header.schema.json"},
+    "event_id": {"type": "string", "minLength": 8},
+    "review_layer": {"type": "string", "const": "M2"},
+    "reviewer_ref": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["actor_id", "actor_type"],
+      "properties": {
+        "actor_id": {"type": "string", "minLength": 3},
+        "actor_type": {"type": "string", "enum": ["human_user", "agent_account"]},
+        "power_grant_ref": {"type": "string"}
+      }
+    },
+    "target_moderation_event_ref": {"type": "string", "minLength": 3},
+    "bridge_refs": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "learning_loop_record_ref": {"type": "string"},
+        "learning_action_explanation_ref": {"type": "string"},
+        "learning_search_record_ref": {"type": "string"},
+        "learning_memory_record_ref": {"type": "string"},
+        "oracle_evaluation_ref": {"type": "string"},
+        "moirai_changeset_ref": {"type": "string"},
+        "policy_parameter_snapshot_ref": {"type": "string"},
+        "runtime_membrane_decision_ref": {"type": "string"}
+      }
+    },
+    "fairness_judgment": {"type": "string", "enum": ["fair", "questionable", "unfair", "insufficient_basis"]},
+    "calibration_impact": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "judge_delta": {"type": "number"},
+        "conduct_delta": {"type": "number"},
+        "moderator_calibration_ref": {"type": "string"}
+      }
+    },
+    "basis_refs": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["constitutional_floor_ref"],
+      "properties": {
+        "constitutional_floor_ref": {"type": "string", "minLength": 3},
+        "evidence_refs": {"type": "array", "items": {"type": "string", "minLength": 3}},
+        "sample_policy_ref": {"type": "string"},
+        "anomaly_signal_refs": {"type": "array", "items": {"type": "string", "minLength": 3}}
+      }
+    },
+    "rationale_text": {"type": "string", "minLength": 3},
+    "status": {"type": "string", "enum": ["active", "superseded", "reversed"]},
+    "escalation_recommended": {"type": "boolean"},
+    "constitutional_review_ref": {"type": "string"},
+    "created_at": {"type": "string", "format": "date-time"}
+  }
+}

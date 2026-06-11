@@ -1,0 +1,54 @@
+{
+  "header": {
+    "object_id": "MOD-EVENT-EXAMPLE-0001",
+    "object_type": "ModerationEvent",
+    "object_version": "0.1",
+    "created_at": "2026-05-05T00:00:00Z",
+    "created_by_contributor_id": "CONTRIB-REVIEW-BRIDGE",
+    "created_by_role": "reviewer",
+    "status": "proposed",
+    "policy_tags": ["public_commons"]
+  },
+  "event_id": "MOD-EVENT-EXAMPLE-0001",
+  "review_layer": "M1",
+  "moderator_ref": {
+    "actor_id": "CONTRIB-MODERATOR-0001",
+    "actor_type": "human_user",
+    "power_grant_ref": "POWER-GRANT-EXAMPLE-0001"
+  },
+  "target_ref": {
+    "target_type": "learning_bridge_record",
+    "target_id": "LEARNING-SEARCH-RECORD-EXAMPLE-0001"
+  },
+  "scope_ref": {
+    "guild_id": "GUILD-ALEXANDRIAN-REASONING",
+    "topic_id": "broker-reasoning-learning"
+  },
+  "bridge_refs": {
+    "learning_loop_record_ref": "LearningLoopRecord://example/0001",
+    "learning_action_explanation_ref": "LearningActionExplanation://example/0001",
+    "learning_search_record_ref": "LearningSearchRecord://example/0001",
+    "learning_memory_record_ref": "LearningMemoryRecord://example/0001",
+    "oracle_evaluation_ref": "OracleOfDelphi://evaluation/example-0001",
+    "moirai_changeset_ref": "MoiraiLedger://changeset/example-0001",
+    "policy_parameter_snapshot_ref": "policy/parameters/policy-parameter-sheet.v1.json",
+    "runtime_membrane_decision_ref": "MembraneDecision://example/0001"
+  },
+  "action": "queue",
+  "reason_code": "forensic",
+  "basis_refs": {
+    "charter_clause_refs": ["SlashTopicPack://alexandrian/reasoning/charter#review-queue"],
+    "constitutional_floor_ref": "ConstitutionalFloorPack://alexandrian/floor/v0.1",
+    "evidence_refs": ["AegisVault://evidence/example-0001"],
+    "standing_vector_ref": "StandingVectorRecord://example/0001",
+    "evaluation_refs": ["OracleOfDelphi://evaluation/example-0001"]
+  },
+  "consequence": {
+    "visibility_change": "queued",
+    "temporary": true,
+    "expires_at": "2026-05-12T00:00:00Z"
+  },
+  "rationale_text": "Queue bridge record for review because it affects search/memory publication under the constitutional floor.",
+  "status": "active",
+  "created_at": "2026-05-05T00:00:00Z"
+}
