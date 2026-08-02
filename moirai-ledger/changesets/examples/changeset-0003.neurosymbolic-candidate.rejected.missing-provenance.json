@@ -1,0 +1,36 @@
+{
+  "changeset_id": "CS-0003-2026-08-01T12:05:00Z",
+  "created_at": "2026-08-01T12:05:00Z",
+  "actor": {
+    "actor_id": "ontogenesis-carrier-bridge",
+    "display_name": "Ontogenesis Neuro-Symbolic Carrier Bridge",
+    "roles": ["external-proposer"]
+  },
+  "operation": "PROMOTE_SANDBOX_TO_CANON",
+  "targets": [
+    {
+      "object_type": "CurriculumPlan",
+      "object_id": "EXAMPLE-NEUROSYMBOLIC-ONTOLOGY-RELATION-UNGROUNDED",
+      "from_status": "sandbox",
+      "to_status": "canon",
+      "object_sha256": "2222222222222222222222222222222222222222222222222222222222222222"
+    }
+  ],
+  "evidence_refs": [
+    "AegisVault://evidence/dON-RRN-inference-run-2026-07-31"
+  ],
+  "justification": {
+    "summary": "Attempt to promote a Deep-Ontological-Network-inferred curriculum relation without completing owning-plane grounding review.",
+    "rationale": "This ChangeSet intentionally omits validated grounding status to exercise the external-carrier promotion gate's rejection path.",
+    "jurisdiction_profile_id": "US-PA::K12::BASELINE",
+    "pedagogy_profile_id": "PED::MONTESSORI::BASELINE"
+  },
+  "external_provenance": {
+    "method_family": "deep_ontological_networks_rrn",
+    "method_output_type": "inferred_ontology_relation",
+    "source_system": "SocioProphet/ontogenesis",
+    "grounding_status": "ungrounded",
+    "validation_status": "pending",
+    "owning_authority_non_claim": true
+  }
+}

@@ -59,6 +59,74 @@
         "pedagogy_profile_id": { "type": "string", "minLength": 3 }
       },
       "additionalProperties": false
+    },
+    "external_provenance": {
+      "type": "object",
+      "description": "OPTIONAL. Present only when this ChangeSet's candidate originated outside Alexandrian Academy's own authoring flow via a neuro-symbolic method (CHRONOS carrier alignment, see sociosphere/docs/integration/neurosymbolic-chronos-alignment.md). Purely-internal ChangeSets must omit this field entirely; its absence carries no meaning and triggers no additional gate. Alexandrian Academy remains the sole canonization authority for Atlas Codex regardless of this field's contents -- it records where a candidate came from, it never grants promotion authority.",
+      "required": ["method_family", "grounding_status", "validation_status", "owning_authority_non_claim"],
+      "properties": {
+        "method_family": {
+          "type": "string",
+          "description": "Which CHRONOS-aligned neuro-symbolic method family produced the candidate (see the 'Method families and CHRONOS roles' table in neurosymbolic-chronos-alignment.md).",
+          "enum": [
+            "logic_review_formal_substrate",
+            "kautz_nsr_taxonomy",
+            "ltn_differentiable_fuzzy_logic",
+            "lnn_truth_bound_propagation",
+            "neurasp_neural_to_asp",
+            "satnet_differentiable_constraint_learning",
+            "dilp_differentiable_rule_learning",
+            "deep_ontological_networks_rrn",
+            "dsr_dsp_symbolic_policy",
+            "kairos_event_schema_induction",
+            "other_neuro_symbolic"
+          ]
+        },
+        "method_output_type": {
+          "type": "string",
+          "description": "What the method produced, e.g. 'inferred_ontology_relation', 'learned_rule', 'induced_event_schema'.",
+          "minLength": 3
+        },
+        "source_system": {
+          "type": "string",
+          "description": "The originating repo/system that proposed the candidate, e.g. 'SocioProphet/ontogenesis'.",
+          "minLength": 3
+        },
+        "grounding_status": {
+          "type": "string",
+          "description": "CHRONOS grounding status of the candidate output.",
+          "enum": ["ungrounded", "partially_grounded", "grounded", "verified"]
+        },
+        "validation_status": {
+          "type": "string",
+          "description": "CHRONOS validation status of the candidate output.",
+          "enum": ["pending", "in_review", "validated", "rejected"]
+        },
+        "explanation_trace_ref": {
+          "type": "string",
+          "description": "Reference to the explanation/replay trace for the candidate's derivation.",
+          "minLength": 3
+        },
+        "owning_authority_non_claim": {
+          "type": "boolean",
+          "const": true,
+          "description": "MUST be explicitly true. Declares that the external method/source does NOT claim canonization authority -- Alexandrian Academy's own promotion gate remains the sole owning authority for Atlas Codex Canon."
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "if": {
+    "required": ["external_provenance"]
+  },
+  "then": {
+    "required": ["evidence_refs"],
+    "properties": {
+      "evidence_refs": {
+        "type": "array",
+        "minItems": 1,
+        "description": "Source evidence reference is required when external_provenance is present (CHRONOS carrier boundary: 'source evidence reference')."
+      }
     }
   },
   "additionalProperties": false
