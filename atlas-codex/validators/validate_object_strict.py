@@ -4,7 +4,6 @@ import re
 import sys
 from pathlib import Path
 
-sys.path.insert(0, str(Path(__file__).resolve().parent))
 from validate_changeset import validate_changeset_object  # noqa: E402
 
 ROOT = Path(__file__).resolve().parents[2]
