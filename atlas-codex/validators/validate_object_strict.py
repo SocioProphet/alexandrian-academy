@@ -4,7 +4,8 @@ import re
 import sys
 from pathlib import Path
 
-from jsonschema import Draft202012Validator
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from validate_changeset import validate_changeset_object  # noqa: E402
 
 ROOT = Path(__file__).resolve().parents[2]
 SCHEMAS = ROOT / "platform-contracts" / "schemas"
@@ -17,13 +18,15 @@ def load_json(p: Path):
   return json.loads(p.read_text(encoding="utf-8"))
 
 def validate_changeset(cs_obj: dict):
-  schema = load_json(CHANGESET_SCHEMA)
-  v = Draft202012Validator(schema)
-  errors = sorted(v.iter_errors(cs_obj), key=lambda e: e.path)
+  # Delegates to validate_changeset.py so the Canon-promotion gate applies
+  # the same JSON Schema validation *and* the external-carrier promotion
+  # gate (method-family / grounding / validation-status / non-authority
+  # checks for CHRONOS-aligned neuro-symbolic candidates) that a direct
+  # `validate_changeset.py <file>` invocation applies.
+  errors = validate_changeset_object(cs_obj)
   if errors:
     for e in errors[:25]:
-      path = "/".join(str(x) for x in e.path)
-      print(f"[FAIL] ChangeSet schema error at '{path}': {e.message}", file=sys.stderr)
+      print(f"[FAIL] ChangeSet gate error: {e}", file=sys.stderr)
     raise SystemExit(2)
 
 def find_changeset_id(obj: dict):

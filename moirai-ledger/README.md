@@ -40,6 +40,19 @@ Schema: [`platform-contracts/schemas/changeset.schema.json`](../platform-contrac
 
 See [`CONTRIBUTING.md`](../CONTRIBUTING.md) for the full step-by-step process.
 
+## External-carrier provenance (CHRONOS alignment)
+
+`sociosphere/docs/integration/neurosymbolic-chronos-alignment.md` names Alexandrian Academy the owning authority plane for "Learning/canonization." That document requires a CHRONOS carrier that references neuro-symbolic reasoning to record method family, source evidence, grounding status, validation status, and an explicit non-authority declaration before the owning plane admits it.
+
+A ChangeSet may optionally carry an `external_provenance` block recording this for a candidate that originated outside Alexandrian Academy's own authoring flow (e.g. a Deep-Ontological-Network-inferred ontology relation, a dILP-style learned rule, or a KAIROS-style induced event schema proposed by Ontogenesis or another CHRONOS-adjacent repo). This is purely additive:
+
+- **Purely-internal ChangeSets omit `external_provenance` entirely** and are validated exactly as before — nothing about the existing required fields changes.
+- When present, `external_provenance` requires `method_family`, `grounding_status`, `validation_status`, and `owning_authority_non_claim: true` (the schema hard-fails any value other than `true` — an external source can never claim canonization authority through this field). It reuses the existing `evidence_refs` field for the CHRONOS "source evidence reference" concept rather than duplicating it.
+- The external-carrier promotion gate in [`atlas-codex/validators/validate_changeset.py`](../atlas-codex/validators/validate_changeset.py) additionally requires, for an actual `PROMOTE_SANDBOX_TO_CANON` operation, `grounding_status` to be `grounded` or `verified` and `validation_status` to be `validated` before the candidate is admitted.
+- Canonization authority never moves: Alexandrian Academy's own promotion gate remains the sole admitting authority for Atlas Codex Canon, regardless of what an external `external_provenance` block declares.
+
+Examples: [`changesets/examples/changeset-0002.neurosymbolic-candidate.valid.json`](changesets/examples/changeset-0002.neurosymbolic-candidate.valid.json) (admitted), [`changesets/examples/changeset-0003.neurosymbolic-candidate.rejected.missing-provenance.json`](changesets/examples/changeset-0003.neurosymbolic-candidate.rejected.missing-provenance.json) and [`changesets/examples/changeset-0004.neurosymbolic-candidate.rejected.claims-authority.json`](changesets/examples/changeset-0004.neurosymbolic-candidate.rejected.claims-authority.json) (both rejected).
+
 ## Relationships to other modules
 
 - **Atlas Codex** objects are the targets of ChangeSet operations.

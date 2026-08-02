@@ -2,7 +2,7 @@ VENV=.venv
 PY=$(VENV)/bin/python
 PIP=$(VENV)/bin/pip
 
-.PHONY: venv deps validate validate-examples validate-stewarded-learning-artifact validate-generated-explanation validate-generated-search-record validate-generated-memory-record validate-explanation-server validate-memory-writer validate-search-publisher validate-explanation-bundle validate-explanation-bundle-e2e validate-templates verify-diagrams validate-strict
+.PHONY: venv deps validate validate-examples validate-stewarded-learning-artifact validate-generated-explanation validate-generated-search-record validate-generated-memory-record validate-explanation-server validate-memory-writer validate-search-publisher validate-explanation-bundle validate-explanation-bundle-e2e validate-templates verify-diagrams validate-strict validate-changeset-provenance
 
 venv:
 	python3 -m venv $(VENV)
@@ -10,7 +10,7 @@ venv:
 deps: venv
 	$(PIP) install -r atlas-codex/validators/requirements.txt
 
-validate: deps verify-diagrams validate-examples validate-stewarded-learning-artifact validate-generated-explanation validate-generated-search-record validate-generated-memory-record validate-explanation-server validate-memory-writer validate-search-publisher validate-explanation-bundle validate-explanation-bundle-e2e validate-templates
+validate: deps verify-diagrams validate-examples validate-stewarded-learning-artifact validate-generated-explanation validate-generated-search-record validate-generated-memory-record validate-explanation-server validate-memory-writer validate-search-publisher validate-explanation-bundle validate-explanation-bundle-e2e validate-templates validate-changeset-provenance
 
 validate-examples: deps
 	$(PY) atlas-codex/validators/validate_object.py platform-contracts/examples/curriculum-plan.sandbox.json
@@ -56,6 +56,13 @@ validate-templates: deps
 	$(PY) atlas-codex/validators/validate_object.py templates/curriculum-builder/v1/curriculum-plan.template.json || true
 	$(PY) atlas-codex/validators/validate_object.py templates/curriculum-builder/v1/unit-map.template.json || true
 	$(PY) atlas-codex/validators/validate_object.py templates/curriculum-builder/v1/assessment-plan.template.json || true
+
+validate-changeset-provenance: deps
+	$(PY) atlas-codex/validators/validate_changeset.py moirai-ledger/changesets/examples/changeset-0001.promote-curriculum-plan.json
+	$(PY) atlas-codex/validators/validate_changeset.py moirai-ledger/changesets/examples/changeset-0002.neurosymbolic-candidate.valid.json
+	$(PY) atlas-codex/validators/validate_changeset.py moirai-ledger/changesets/examples/changeset-0003.neurosymbolic-candidate.rejected.missing-provenance.json || true
+	$(PY) atlas-codex/validators/validate_changeset.py moirai-ledger/changesets/examples/changeset-0004.neurosymbolic-candidate.rejected.claims-authority.json || true
+	$(PY) tools/tests/test_changeset_provenance.py
 
 verify-diagrams:
 	python3 tools/verify_diagrams.py
